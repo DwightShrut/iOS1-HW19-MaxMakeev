@@ -15,8 +15,9 @@ class TitleTableViewCell: UITableViewCell {
     
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.tintColor = .systemBlue
-        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .white
+        imageView.layer.cornerRadius = 6
+        imageView.contentMode = .center
         return imageView
     }()
     
@@ -58,8 +59,8 @@ class TitleTableViewCell: UITableViewCell {
             centerYPadding: 0,
             left: contentView.leadingAnchor,
             leftPadding: 16,
-            width: 24,
-            height: 24
+            width: 25,
+            height: 25
         )
         
         leftTitleLabel.addConstraints(
@@ -75,15 +76,17 @@ class TitleTableViewCell: UITableViewCell {
             centerY: contentView.centerYAnchor,
             centerYPadding: 0,
             right: contentView.trailingAnchor,
-            rightPadding: 16
+            rightPadding: -16
         )
+    }
         
         // MARK: - Configurate Cell
         
-        func configurate(with item: CellItem) {
-            iconImageView.image = item.icon
-            leftTitleLabel.text = item.leftTitle
-            rightTitleLabel.text = item.rightTitle
-        }
+    func configurate(with item: CellItem) {
+        iconImageView.image = item.icon
+        iconImageView.backgroundColor = item.background
+        leftTitleLabel.text = item.leftTitle
+        rightTitleLabel.text = item.rightTitle
     }
 }
+
