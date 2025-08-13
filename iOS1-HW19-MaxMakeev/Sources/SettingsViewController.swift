@@ -13,7 +13,10 @@ class SettingsViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
+        tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
     
@@ -45,7 +48,45 @@ class SettingsViewController: UIViewController {
             bottomPadding: 0
         )
     }
+}
 
-
+extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        cellQueue.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellType = cellQueue[indexPath.row]
+        let cellItem = CellItem.settingsItems[indexPath.row]
+        
+        switch cellType {
+        case .switchCell:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as! SwitchTableViewCell
+            cell.configurate(with: cellItem)
+            return cell
+        case .titleCell:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as! TitleTableViewCell
+            cell.configurate(with: cellItem)
+            return cell
+        case .defaultCell:
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "DefaultCell")
+            cell.textLabel?.text = cellItem.leftTitle
+            cell.imageView?.tintColor = .white
+            cell.imageView?.layer.cornerRadius = 6
+            cell.imageView?.backgroundColor = cellItem.background
+            cell.imageView?.contentMode = .center
+            cell.imageView?.image = cellItem.icon
+            cell.imageView?.addConstraints(
+                centerY: cell.contentView.centerYAnchor,
+                centerYPadding: 0,
+                left: cell.contentView.leadingAnchor,
+                leftPadding: 16,
+                width: 25,
+                height: 25
+            )
+            cell.accessoryType = .disclosureIndicator
+            return cell
+        }
+    }
 }
 
