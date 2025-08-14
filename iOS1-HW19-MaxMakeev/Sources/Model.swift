@@ -27,7 +27,7 @@ enum CellType {
 enum icons {
     static let airplane = UIImage(systemName: "airplane")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
     static let wifi = UIImage(systemName: "wifi")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let bluetooth = UIImage(systemName: "wave.3.forward")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .medium))
+    static let bluetooth = UIImage(named: "bluetooth")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .medium)).withTintColor(.white)
     static let antenna = UIImage(systemName: "antenna.radiowaves.left.and.right")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .medium))
     static let chain = UIImage(systemName: "personalhotspot")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .medium))
     static let vpn = UIImage(systemName: "network")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
