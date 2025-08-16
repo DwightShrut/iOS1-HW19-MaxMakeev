@@ -47,14 +47,29 @@ class DetailViewController: UIViewController {
     }
 }
 
-    /*
-    // MARK: - Navigation
+// MARK: - Extension to DetailViewController
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension DetailViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellType = cellQueue[CellItem.indexSection ?? 0][CellItem.indexRow ?? 1]
+        
+        switch cellType {
+        case .titleCell:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as! SwitchTableViewCell
+            cell.configurate(with:CellItem.settingsItems[CellItem.indexSection ?? 0][CellItem.indexRow ?? 0])
+            return cell
+        case .defaultCell:
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "DefaultCell")
+            cell.textLabel?.text = "Таблица с каким то дейтвиями"
+            return cell
+        case .switchCell:
+            return UITableViewCell()
+        }
+    }
 }

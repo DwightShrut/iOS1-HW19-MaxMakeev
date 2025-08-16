@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController {
     }()
     
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -93,5 +93,15 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        CellItem.indexSection = indexPath.section
+        CellItem.indexRow = indexPath.row
+        tableView.deselectRow(at: indexPath, animated: true)
+        let cellType = cellQueue[CellItem.indexSection ?? 0][CellItem.indexRow ?? 1]
+        if cellType != .switchCell {
+            let viewController = DetailViewController()
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
 }
-
