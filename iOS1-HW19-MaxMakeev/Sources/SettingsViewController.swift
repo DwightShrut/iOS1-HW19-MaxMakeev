@@ -51,13 +51,17 @@ class SettingsViewController: UIViewController {
 }
 
 extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        CellItem.settingsItems.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cellQueue.count
+        CellItem.settingsItems[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellType = cellQueue[indexPath.row]
-        let cellItem = CellItem.settingsItems[indexPath.row]
+        let cellType = cellQueue[indexPath.section][indexPath.row]
+        let cellItem = CellItem.settingsItems[indexPath.section][indexPath.row]
         
         switch cellType {
         case .switchCell:
@@ -67,6 +71,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         case .titleCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as! TitleTableViewCell
             cell.configurate(with: cellItem)
+            cell.accessoryType = .disclosureIndicator
             return cell
         case .defaultCell:
             let cell = UITableViewCell(style: .default, reuseIdentifier: "DefaultCell")
