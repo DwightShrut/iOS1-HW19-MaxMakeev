@@ -58,8 +58,8 @@ class SwitchTableViewCell: UITableViewCell {
             centerYPadding: 0,
             left: contentView.leadingAnchor,
             leftPadding: 16,
-            width: 25,
-            height: 25
+            width: 26,
+            height: 26
         )
         
         titleLabel.addConstraints(

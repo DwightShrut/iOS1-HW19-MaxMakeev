@@ -86,8 +86,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
                 centerYPadding: 0,
                 left: cell.contentView.leadingAnchor,
                 leftPadding: 16,
-                width: 25,
-                height: 25
+                width: 26,
+                height: 26
             )
             cell.accessoryType = .disclosureIndicator
             return cell
