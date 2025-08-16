@@ -107,7 +107,7 @@ extension CellItem {
             background: .systemBlue,
             leftTitle: "Bluetooth",
             rightTitle: "Вкл",
-            switchValue: false,
+            switchValue: true,
          ),
          CellItem(
             icon: icons.antenna,
