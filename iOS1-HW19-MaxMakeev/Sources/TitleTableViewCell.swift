@@ -23,13 +23,13 @@ class TitleTableViewCell: UITableViewCell {
     
     private lazy var rightTitleLabel: UILabel = {
         let rightLabel = UILabel()
-        rightLabel.font = .systemFont(ofSize: 16, weight: .medium)
+        rightLabel.font = .systemFont(ofSize: 16)
         return rightLabel
     }()
     
     private lazy var leftTitleLabel: UILabel = {
         let leftLabel = UILabel()
-        leftLabel.font = .systemFont(ofSize: 16, weight: .medium)
+        leftLabel.font = .systemFont(ofSize: 16)
         return leftLabel
     }()
     
@@ -79,9 +79,9 @@ class TitleTableViewCell: UITableViewCell {
             rightPadding: -16
         )
     }
-        
-        // MARK: - Configurate Cell
-        
+    
+    // MARK: - Configurate Cell
+    
     func configurate(with item: CellItem) {
         iconImageView.image = item.icon
         iconImageView.backgroundColor = item.background
@@ -89,4 +89,3 @@ class TitleTableViewCell: UITableViewCell {
         rightTitleLabel.text = item.rightTitle
     }
 }
-

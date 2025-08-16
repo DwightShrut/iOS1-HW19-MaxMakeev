@@ -23,11 +23,11 @@ class SwitchTableViewCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.font = .systemFont(ofSize: 16)
         return label
     }()
     
-    private lazy var switchControl: UISwitch = {
+    lazy var switchControl: UISwitch = {
         let switchControl = UISwitch()
         return switchControl
     }()
@@ -78,8 +78,8 @@ class SwitchTableViewCell: UITableViewCell {
             rightPadding: -16
         )
     }
-        
-        // MARK: - Configurate Cell
+    
+    // MARK: - Configurate Cell
     
     func configurate(with item: CellItem) {
         iconImageView.image = item.icon
@@ -88,4 +88,3 @@ class SwitchTableViewCell: UITableViewCell {
         switchControl.isOn = item.switchValue
     }
 }
-

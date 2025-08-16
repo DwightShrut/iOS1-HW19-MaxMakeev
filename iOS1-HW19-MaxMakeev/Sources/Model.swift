@@ -9,13 +9,15 @@ import UIKit
 
 // MARK: - Model
 
-struct CellItem {
+struct CellItem: Hashable {
     let icon: UIImage?
     let background: UIColor?
     let leftTitle: String?
     var rightTitle: String?
-    let isSwitch: Bool
     let switchValue: Bool
+    
+    static var indexSection: Int? = 0
+    static var indexRow: Int? = 0
 }
 
 enum CellType {
@@ -23,6 +25,8 @@ enum CellType {
     case defaultCell
     case titleCell
 }
+
+// MARK: - Constants
 
 enum icons {
     static let airplane = UIImage(systemName: "airplane")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
@@ -50,8 +54,6 @@ enum icons {
     static let sos = UIImage(systemName: "sos")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
     static let confidentional = UIImage(systemName: "hand.raised.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
 }
-
-
 
 let cellQueue: [[CellType]] = [
     [.switchCell,
@@ -81,8 +83,9 @@ let cellQueue: [[CellType]] = [
     [.defaultCell,
      .defaultCell,
      .defaultCell
-    ]
-]
+    ]]
+
+// MARK: - Cell configuration array
 
 extension CellItem {
     static let settingsItems: [[CellItem]] = [
@@ -90,7 +93,6 @@ extension CellItem {
             icon: icons.airplane,
             background: .systemOrange,
             leftTitle: "Авиарежим",
-            isSwitch: true,
             switchValue: true,
         ),
          CellItem(
@@ -98,7 +100,6 @@ extension CellItem {
             background: .systemBlue,
             leftTitle: "Wi-Fi",
             rightTitle: "Выкл",
-            isSwitch: false,
             switchValue: false,
          ),
          CellItem(
@@ -106,157 +107,133 @@ extension CellItem {
             background: .systemBlue,
             leftTitle: "Bluetooth",
             rightTitle: "Вкл",
-            isSwitch: false,
             switchValue: false,
          ),
          CellItem(
             icon: icons.antenna,
             background: .systemGreen,
             leftTitle: "Сотовая связь",
-            isSwitch: false,
             switchValue: false
          ),
          CellItem(
             icon: icons.chain,
             background: .systemGreen,
             leftTitle: "Режим модема",
-            isSwitch: false,
             switchValue: false
          ),
          CellItem(
             icon: icons.battery,
             background: .systemGreen,
             leftTitle: "Аккумулятор",
-            isSwitch: false,
             switchValue: false
          ),
          CellItem(
             icon: icons.vpn,
             background: .systemBlue,
             leftTitle: "VPN",
-            isSwitch: false,
             switchValue: false
          )],
-       [CellItem(
-        icon: icons.notifications,
-        background: .systemRed,
-        leftTitle: "Уведомления",
-        isSwitch: false,
-        switchValue: false
-       ),
-        CellItem(
+        [CellItem(
+            icon: icons.notifications,
+            background: .systemRed,
+            leftTitle: "Уведомления",
+            switchValue: false
+        ),
+         CellItem(
             icon: icons.volume,
             background: .systemRed,
             leftTitle: "Звуки ивибрация",
-            isSwitch: false,
             switchValue: false
-        ),
-        CellItem(
+         ),
+         CellItem(
             icon: icons.moon,
             background: .systemIndigo,
             leftTitle: "Не беспокоить",
-            isSwitch: false,
             switchValue: false
-        ),
-        CellItem(
+         ),
+         CellItem(
             icon: icons.viewTime,
             background: .systemIndigo,
             leftTitle: "Экранное время",
-            isSwitch: false,
             switchValue: false
-            )],
+         )],
         [CellItem(
             icon: icons.gear,
             background: .systemGray,
             leftTitle: "Основные",
-            isSwitch: false,
             switchValue: false
         ),
          CellItem(
             icon: icons.accessibility,
             background: .systemBlue,
-             leftTitle: "Универсальный доступ",
-             isSwitch: false,
-             switchValue: false
+            leftTitle: "Универсальный доступ",
+            switchValue: false
          ),
          CellItem(
             icon: icons.camera,
             background: .systemGray,
-             leftTitle: "Камера",
-             isSwitch: false,
-             switchValue: false
+            leftTitle: "Камера",
+            switchValue: false
          ),
          CellItem(
             icon: icons.wallpaper,
             background: .systemCyan,
-             leftTitle: "Обои",
-             isSwitch: false,
-             switchValue: false
+            leftTitle: "Обои",
+            switchValue: false
          ),
          CellItem(
             icon: icons.await,
             background: .black,
-             leftTitle: "Ожидание",
-             isSwitch: false,
-             switchValue: false
+            leftTitle: "Ожидание",
+            switchValue: false
          ),
          CellItem(
             icon: icons.glass,
             background: .systemGray,
-             leftTitle: "Поиск",
-             isSwitch: false,
-             switchValue: false
+            leftTitle: "Поиск",
+            switchValue: false
          ),
          CellItem(
             icon: icons.switch2,
             background: .systemGray,
-             leftTitle: "Пункт управления",
-             isSwitch: false,
-             switchValue: false
+            leftTitle: "Пункт управления",
+            switchValue: false
          ),
          CellItem(
             icon: icons.apps,
             background: .systemBlue,
-             leftTitle: "Экран 'Домой'",
-             isSwitch: false,
-             switchValue: false
+            leftTitle: "Экран 'Домой'",
+            switchValue: false
          ),
          CellItem(
             icon: icons.sun,
             background: .systemBlue,
-             leftTitle: "Экран и яркость",
-             isSwitch: false,
-             switchValue: false
+            leftTitle: "Экран и яркость",
+            switchValue: false
          ),
          CellItem(
             icon: icons.siri,
             background: .magenta,
-             leftTitle: "Siri",
-             isSwitch: false,
-             switchValue: false
+            leftTitle: "Siri",
+            switchValue: false
          )],
         [CellItem(
             icon: icons.faceID,
             background: .systemGreen,
             leftTitle: "Facen ID и код пароль",
-            isSwitch: false,
             switchValue: false
         ),
          CellItem(
             icon: icons.sos,
             background: .systemRed,
             leftTitle: "Экстренный вызов - SOS",
-            isSwitch: false,
             switchValue: false
          ),
          CellItem(
             icon: icons.confidentional,
             background: .systemBlue,
-             leftTitle: "Конфиденциальность и безопасность",
-             isSwitch: false,
-             switchValue: false
-         )]
-    ]
-    
+            leftTitle: "Конфиденциальность и безопасность",
+            switchValue: false
+         )]]
 }
-                    
+

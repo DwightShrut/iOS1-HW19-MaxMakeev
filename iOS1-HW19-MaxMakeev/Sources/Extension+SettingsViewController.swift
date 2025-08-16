@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     
-     func addConstraints(
+    func addConstraints(
         centerX: NSLayoutXAxisAnchor? = nil,
         centerXPaddiing: CGFloat = 0,
         centerY: NSLayoutYAxisAnchor? = nil,
