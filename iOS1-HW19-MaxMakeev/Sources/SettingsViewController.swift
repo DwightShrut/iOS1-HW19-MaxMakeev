@@ -103,5 +103,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             let viewController = DetailViewController()
             navigationController?.pushViewController(viewController, animated: true)
         }
+        print("Нажата ячейка \(CellItem.settingsItems[CellItem.indexSection ?? 0][CellItem.indexRow ?? 0].leftTitle ?? "Error")")
+        
     }
 }
