@@ -220,7 +220,7 @@ extension CellItem {
         [CellItem(
             icon: icons.faceID,
             background: .systemGreen,
-            leftTitle: "Facen ID и код пароль",
+            leftTitle: "Face ID и код пароль",
             switchValue: false
         ),
          CellItem(
