@@ -35,8 +35,14 @@ class TitleTableViewCell: UITableViewCell {
     
     // MARK: - Initializers
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super .init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(
+        style: UITableViewCell.CellStyle,
+        reuseIdentifier: String?
+    ) {
+        super .init(
+            style: style,
+            reuseIdentifier: reuseIdentifier
+        )
         setupHierarchy()
         setupLayout()
     }
@@ -59,8 +65,8 @@ class TitleTableViewCell: UITableViewCell {
             centerYPadding: 0,
             left: contentView.leadingAnchor,
             leftPadding: 16,
-            width: 26,
-            height: 26
+            width: 30,
+            height: 30
         )
         
         leftTitleLabel.addConstraints(

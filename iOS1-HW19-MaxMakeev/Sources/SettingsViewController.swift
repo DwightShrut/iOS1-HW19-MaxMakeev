@@ -12,9 +12,26 @@ class SettingsViewController: UIViewController {
     // MARK: - Outlets
     
     private lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
-        tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
+        let tableView = UITableView(
+            frame: .zero,
+            style: .grouped
+        )
+        
+        tableView.register(
+            SwitchTableViewCell.self,
+            forCellReuseIdentifier: SwitchTableViewCell.identifier
+        )
+        
+        tableView.register(
+            TitleTableViewCell.self,
+            forCellReuseIdentifier: TitleTableViewCell.identifier
+        )
+        
+        tableView.register(
+            DefaultTableViewCell.self,
+            forCellReuseIdentifier: DefaultTableViewCell.identifier
+        )
+        
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
@@ -55,21 +72,35 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         CellItem.settingsItems.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         CellItem.settingsItems[section].count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         let cellType = cellQueue[indexPath.section][indexPath.row]
         let cellItem = CellItem.settingsItems[indexPath.section][indexPath.row]
         
         switch cellType {
         case .switchCell:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as! SwitchTableViewCell
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SwitchTableViewCell.identifier,
+                for: indexPath
+            ) as? SwitchTableViewCell else { return UITableViewCell() }
+            
             cell.configurate(with: cellItem)
             return cell
         case .titleCell:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as! TitleTableViewCell
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: TitleTableViewCell.identifier,
+                for: indexPath
+            ) as? TitleTableViewCell else { return UITableViewCell() }
+            
             cell.configurate(with: cellItem)
             cell.accessoryType = .disclosureIndicator
             return cell

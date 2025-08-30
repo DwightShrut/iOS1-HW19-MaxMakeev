@@ -12,8 +12,14 @@ class DetailViewController: UIViewController {
     // MARK: - Outlets
     
     private lazy var switchTable: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        let tableView = UITableView(
+            frame: .zero,
+            style: .grouped
+        )
+        tableView.register(
+            SwitchTableViewCell.self,
+            forCellReuseIdentifier: SwitchTableViewCell.identifier
+        )
         tableView.dataSource = self
         return tableView
     }()
@@ -51,21 +57,33 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         
         let cellType = cellQueue[CellItem.indexSection ?? 0][CellItem.indexRow ?? 1]
         
         switch cellType {
         case .titleCell:
-            let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as! SwitchTableViewCell
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SwitchTableViewCell.identifier,
+                for: indexPath
+            ) as? SwitchTableViewCell else { return UITableViewCell() }
             cell.configurate(with:CellItem.settingsItems[CellItem.indexSection ?? 0][CellItem.indexRow ?? 0])
             return cell
         case .defaultCell:
-            let cell = UITableViewCell(style: .default, reuseIdentifier: "DefaultCell")
+            let cell = UITableViewCell(
+                style: .default,
+                reuseIdentifier: "DefaultCell"
+            )
             cell.textLabel?.text = "Таблица с каким то дейтвиями"
             return cell
         case .switchCell:

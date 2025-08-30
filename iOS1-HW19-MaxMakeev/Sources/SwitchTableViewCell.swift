@@ -27,15 +27,21 @@ class SwitchTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var switchControl: UISwitch = {
+    private lazy var switchControl: UISwitch = {
         let switchControl = UISwitch()
         return switchControl
     }()
     
     // MARK: - Initializers
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super .init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(
+        style: UITableViewCell.CellStyle,
+        reuseIdentifier: String?
+    ) {
+        super .init(
+            style: style,
+            reuseIdentifier: reuseIdentifier)
+        
         setupHierarchy()
         setupLayout()
     }
@@ -58,8 +64,8 @@ class SwitchTableViewCell: UITableViewCell {
             centerYPadding: 0,
             left: contentView.leadingAnchor,
             leftPadding: 16,
-            width: 26,
-            height: 26
+            width: 30,
+            height: 30
         )
         
         titleLabel.addConstraints(
