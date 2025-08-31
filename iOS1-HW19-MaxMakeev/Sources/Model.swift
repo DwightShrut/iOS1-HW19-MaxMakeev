@@ -28,31 +28,127 @@ enum CellType {
 
 // MARK: - Constants
 
-enum icons {
-    static let airplane = UIImage(systemName: "airplane")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let wifi = UIImage(systemName: "wifi")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let bluetooth = UIImage(named: "bluetooth")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .medium)).withTintColor(.white)
-    static let antenna = UIImage(systemName: "antenna.radiowaves.left.and.right")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .medium))
-    static let chain = UIImage(systemName: "personalhotspot")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .medium))
-    static let battery = UIImage(systemName: "battery.100percent")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 13, weight: .light))
-    static let vpn = UIImage(systemName: "network")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let notifications = UIImage(systemName: "bell.badge.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let volume = UIImage(systemName: "speaker.wave.3.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let moon = UIImage(systemName: "moon.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let viewTime = UIImage(systemName: "hourglass")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let gear = UIImage(systemName: "gear")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let accessibility = UIImage(systemName: "accessibility")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let camera = UIImage(systemName: "camera.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let wallpaper = UIImage(systemName: "photo.artframe")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let await = UIImage(systemName: "calendar.badge.clock")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let glass = UIImage(systemName: "magnifyingglass")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let switch2 = UIImage(systemName: "switch.2")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let apps = UIImage(systemName: "apps.ipad")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let sun = UIImage(systemName: "sun.max.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let siri = UIImage(systemName: "bonjour")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light)).withTintColor(.magenta)
-    static let faceID = UIImage(systemName: "faceid")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let sos = UIImage(systemName: "sos")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
-    static let confidentional = UIImage(systemName: "hand.raised.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15, weight: .light))
+enum Icons {
+    static let airplane = UIImage(
+        systemName: "airplane")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let wifi = UIImage(
+        systemName: "wifi")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let bluetooth = UIImage(
+        named: "bluetooth")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .medium
+        )).withTintColor(.white)
+    static let antenna = UIImage(
+        systemName: "antenna.radiowaves.left.and.right")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .medium
+        ))
+    static let chain = UIImage(
+        systemName: "personalhotspot")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .medium
+        ))
+    static let battery = UIImage(
+        systemName: "battery.100percent")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 13,
+            weight: .light
+        ))
+    static let vpn = UIImage(
+        systemName: "network")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let notifications = UIImage(
+        systemName: "bell.badge.fill")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let volume = UIImage(
+        systemName: "speaker.wave.3.fill")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let moon = UIImage(
+        systemName: "moon.fill")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let viewTime = UIImage(
+        systemName: "hourglass")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let gear = UIImage(
+        systemName: "gear")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let accessibility = UIImage(
+        systemName: "accessibility")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let camera = UIImage(
+        systemName: "camera.fill")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let wallpaper = UIImage(
+        systemName: "photo.artframe")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let await = UIImage(
+        systemName: "calendar.badge.clock")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let glass = UIImage(
+        systemName: "magnifyingglass")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let switch2 = UIImage(
+        systemName: "switch.2")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let apps = UIImage(
+        systemName: "apps.ipad")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let sun = UIImage(
+        systemName: "sun.max.fill")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let siri = UIImage(
+        systemName: "bonjour")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        )).withTintColor(.magenta)
+    static let faceID = UIImage(
+        systemName: "faceid")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let sos = UIImage(
+        systemName: "sos")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
+    static let confidentional = UIImage(
+        systemName: "hand.raised.fill")?.withConfiguration(UIImage.SymbolConfiguration(
+            pointSize: 15,
+            weight: .light
+        ))
 }
 
 let cellQueue: [[CellType]] = [
@@ -90,147 +186,147 @@ let cellQueue: [[CellType]] = [
 extension CellItem {
     static let settingsItems: [[CellItem]] = [
         [CellItem(
-            icon: icons.airplane,
+            icon: Icons.airplane,
             background: .systemOrange,
             leftTitle: "Авиарежим",
             switchValue: true,
         ),
          CellItem(
-            icon: icons.wifi,
+            icon: Icons.wifi,
             background: .systemBlue,
             leftTitle: "Wi-Fi",
             rightTitle: "Выкл",
             switchValue: false,
          ),
          CellItem(
-            icon: icons.bluetooth,
+            icon: Icons.bluetooth,
             background: .systemBlue,
             leftTitle: "Bluetooth",
             rightTitle: "Вкл",
             switchValue: true,
          ),
          CellItem(
-            icon: icons.antenna,
+            icon: Icons.antenna,
             background: .systemGreen,
             leftTitle: "Сотовая связь",
             switchValue: false
          ),
          CellItem(
-            icon: icons.chain,
+            icon: Icons.chain,
             background: .systemGreen,
             leftTitle: "Режим модема",
             switchValue: false
          ),
          CellItem(
-            icon: icons.battery,
+            icon: Icons.battery,
             background: .systemGreen,
             leftTitle: "Аккумулятор",
             switchValue: false
          ),
          CellItem(
-            icon: icons.vpn,
+            icon: Icons.vpn,
             background: .systemBlue,
             leftTitle: "VPN",
             switchValue: false
          )],
         [CellItem(
-            icon: icons.notifications,
+            icon: Icons.notifications,
             background: .systemRed,
             leftTitle: "Уведомления",
             switchValue: false
         ),
          CellItem(
-            icon: icons.volume,
+            icon: Icons.volume,
             background: .systemRed,
             leftTitle: "Звуки ивибрация",
             switchValue: false
          ),
          CellItem(
-            icon: icons.moon,
+            icon: Icons.moon,
             background: .systemIndigo,
             leftTitle: "Не беспокоить",
             switchValue: false
          ),
          CellItem(
-            icon: icons.viewTime,
+            icon: Icons.viewTime,
             background: .systemIndigo,
             leftTitle: "Экранное время",
             switchValue: false
          )],
         [CellItem(
-            icon: icons.gear,
+            icon: Icons.gear,
             background: .systemGray,
             leftTitle: "Основные",
             switchValue: false
         ),
          CellItem(
-            icon: icons.accessibility,
+            icon: Icons.accessibility,
             background: .systemBlue,
             leftTitle: "Универсальный доступ",
             switchValue: false
          ),
          CellItem(
-            icon: icons.camera,
+            icon: Icons.camera,
             background: .systemGray,
             leftTitle: "Камера",
             switchValue: false
          ),
          CellItem(
-            icon: icons.wallpaper,
+            icon: Icons.wallpaper,
             background: .systemCyan,
             leftTitle: "Обои",
             switchValue: false
          ),
          CellItem(
-            icon: icons.await,
+            icon: Icons.await,
             background: .black,
             leftTitle: "Ожидание",
             switchValue: false
          ),
          CellItem(
-            icon: icons.glass,
+            icon: Icons.glass,
             background: .systemGray,
             leftTitle: "Поиск",
             switchValue: false
          ),
          CellItem(
-            icon: icons.switch2,
+            icon: Icons.switch2,
             background: .systemGray,
             leftTitle: "Пункт управления",
             switchValue: false
          ),
          CellItem(
-            icon: icons.apps,
+            icon: Icons.apps,
             background: .systemBlue,
             leftTitle: "Экран 'Домой'",
             switchValue: false
          ),
          CellItem(
-            icon: icons.sun,
+            icon: Icons.sun,
             background: .systemBlue,
             leftTitle: "Экран и яркость",
             switchValue: false
          ),
          CellItem(
-            icon: icons.siri,
+            icon: Icons.siri,
             background: .magenta,
             leftTitle: "Siri",
             switchValue: false
          )],
         [CellItem(
-            icon: icons.faceID,
+            icon: Icons.faceID,
             background: .systemGreen,
             leftTitle: "Face ID и код пароль",
             switchValue: false
         ),
          CellItem(
-            icon: icons.sos,
+            icon: Icons.sos,
             background: .systemRed,
             leftTitle: "Экстренный вызов - SOS",
             switchValue: false
          ),
          CellItem(
-            icon: icons.confidentional,
+            icon: Icons.confidentional,
             background: .systemBlue,
             leftTitle: "Конфиденциальность и безопасность",
             switchValue: false

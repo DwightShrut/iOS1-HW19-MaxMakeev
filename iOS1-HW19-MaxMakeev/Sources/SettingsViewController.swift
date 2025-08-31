@@ -105,22 +105,11 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             cell.accessoryType = .disclosureIndicator
             return cell
         case .defaultCell:
-            let cell = UITableViewCell(style: .default, reuseIdentifier: "DefaultCell")
-            cell.textLabel?.text = cellItem.leftTitle
-            cell.imageView?.tintColor = .white
-            cell.imageView?.layer.cornerRadius = 6
-            cell.imageView?.backgroundColor = cellItem.background
-            cell.imageView?.contentMode = .center
-            cell.imageView?.image = cellItem.icon
-            cell.imageView?.addConstraints(
-                centerY: cell.contentView.centerYAnchor,
-                centerYPadding: 0,
-                left: cell.contentView.leadingAnchor,
-                leftPadding: 16,
-                width: 26,
-                height: 26
-            )
-            cell.accessoryType = .disclosureIndicator
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: DefaultTableViewCell.identifier,
+                for: indexPath
+                ) as? DefaultTableViewCell else { return UITableViewCell() }
+            cell.configure(with: cellItem)
             return cell
         }
     }
