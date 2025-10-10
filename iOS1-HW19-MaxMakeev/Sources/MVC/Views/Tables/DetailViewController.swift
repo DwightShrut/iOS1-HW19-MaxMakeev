@@ -76,12 +76,7 @@ extension DetailViewController: UITableViewDataSource {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         
-        guard let item = cellItem else {
-            let cell = UITableViewCell(style: .default, reuseIdentifier: "DefaultCell")
-            cell.textLabel?.text = "Ошибка загрузки данных"
-            return cell
-        }
-        
+        guard let item = cellItem else { return UITableViewCell() }
         switch item.cellType {
         case .titleCell:
             guard let cell = tableView.dequeueReusableCell(
